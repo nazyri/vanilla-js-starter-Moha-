@@ -1,0 +1,41 @@
+.titulo{
+    text-align: center;
+}
+
+.boton-1{
+    display: flex;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.boton-2{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.boton{
+    margin: 1px;
+    margin-left: 1265px;
+}
+
+.boton-3{
+    margin: 1px;
+    margin-left: 1250px;
+}
+
+.redondo{
+ display: block;
+ width: 45px;
+ height: 45px;
+ border-radius: 50%;
+ margin-left: 1350px;
+ margin-top: -40px;
+}
+
+.cuadro{
+    border: 2px solid cornflowerblue;
+    width: 1400px;
+    height: 450px;
+    margin-left: 30px;
+}
