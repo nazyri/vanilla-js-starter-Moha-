@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/estilos/nd.css">
+</head>
+<body>
+    <div class="agregar-tareas">
+        <input type="text" id="input" placeholder="Agregar una tarea">
+        <button id="boton-enter">Enter</button>
+    </div>
+
+    <div class="seccion-tarea">
+        <h3>Estas son tus tareas pendientes</h3>
+        <ul id="lista">
+            <li>
+                <input type="checkbox">
+                <p class="text line-through">Hacer tarea</p>
+                <button>eliminar</button>
+            </li>
+            <li>
+                <input type="checkbox" data-="realizado">
+                <p class="text line-through">Hacer tarea</p>
+                <button data-="eliminado">eliminar</button>
+            </li>
+        </ul>
+
+    </div>
+<script src="/src/javasrip/nd.js"></script>
+</body>
+</html>

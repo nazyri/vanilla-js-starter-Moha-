@@ -1,14 +1,16 @@
 let tarea = document.getElementById('input')
-let boton = document.getElementById('boton-2')
+let agregar = document.getElementById('boton-2')
 let lista = document.getElementById('cuadro')
-let circulo = document.getElementById('circulo')
+let circulo = document.getElementById('contador')
+let check = document.getElementById('check1')
 
-
-boton.addEventListener('click', function() {
+agregar.addEventListener('click', function () {
   lista.innerHTML = tarea.value
+  circulo.innerHTML =
+    parseInt(contador.innerHTML) + 1
+  alert("Agregue el nombre de la tarea")
 });
 
-boton.addEventListener('click', function() {
-   
-    
-});
+let arreglo = [
+ 
+]

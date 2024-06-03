@@ -1,0 +1,32 @@
+:root {
+  --white: #fafafb;
+  --purple: #9a67ea;
+  --blue-light: #04d4c3;
+  --green: #2c7b90;
+}
+
+body {
+  background: linear-gradient(to bottom,var(--purple),var(--blue-lingth));
+  height: 100vh;
+}
+
+.agregar-tareas{
+  margin: 30px 0;
+}
+
+.seccion-tarea li {
+  display: flex;
+  background: linear-gradient(to bottom,var(--blue-dark),var(--green));
+  border-radius: 15px;
+  padding: 10px;
+  align-items: center;
+}
+
+.seccion-tarea > ul p {
+  font-size: larger;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
