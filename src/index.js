@@ -1,70 +1,116 @@
 // Inserte el código aquí
-const btnVer = document.getElementById("boton")
-async function datos() {
-    try {
-        const respuesta = await fetch("tareas.json")
-        const datos = await respuesta.json()
-        console.log(datos);
-    } catch (error) {
-        console.error(error);
-    }
-}
+const agregar = document.getElementById("boton")
+const input = document.getElementById("input")
 
-//GET
-async function tarea() {
+
+// 
+async function getTarea() {
     try {
-        const response = await fetch('http://localhost:3000/api/task')
-        const data = await response.json();
-        data.forEach(tareas=>{
-        let p = document.createElement("p")
-        let checkbox = document.createElement("input")
-        checkbox.type = "checkbox"
+        cuadro.innerHTML=""
+        const respuesta = await fetch("http://localhost:3000/api/task")
+        const arreglo = await respuesta.json()
+        arreglo.forEach(tareas=>{
+        let ex = document.createElement("INPUT")
+        let p = document.createElement("span")
         let div = document.createElement("div")
-        let cuadro = document.createElement("cuadro")
-
+        let boton = document.createElement("button")
+        boton.innerHTML = "Eliminar"
+        boton.className='btn'
+        boton.addEventListener('click',()=>{
+            console.log("detecta el click");
+            borrar(tareas.id)
+        })
+        div.appendChild(p)
+        ex.type = "checkbox"
         p.innerHTML = tareas.nombre
+        let cuadro = document.getElementById("cuadro")
 
-        p.appendChild(checkbox)
-        checkbox.appendChild(div)
-        div.appendChild(cuadro)
-        cuadro.appendChild(p)
+        div.appendChild(ex)
+        div.appendChild(p)
+        cuadro.appendChild(div)
 
-       })
+        p.appendChild(boton)
+
+        ex.className="equis"
+    })
     } catch (error) {
         console.error(error);
     }
 }
-
 //POST
 async function darDatos() {
     try {
         let tarea={
-            id:Date.now(),
-            nombre:input.value
+            nombre:input.value,
+            estado:false
         }
+        console.log(JSON.stringify(tarea))
         const respuesta = await fetch('http://localhost:3000/api/task',{
             method: "POST",
             headers: {
-                "Content-type": "aplication/json; charset=UTF-8"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(tarea)
         })
-
-
         let registro = await respuesta.json()
         console.log(registro);
-        tarea()
-
+        getTarea()
         console.log(`La tarea ${tarea.id} fue agregada`);
     } catch (error) {
         console.error(error);
     }  
 }
-
-btnVer.addEventListener("click",()=>{
+agregar.addEventListener("click",()=>{
    darDatos()
 })
-
-
-
-
+//PUT
+async function actualizacion(id) {
+    try {
+        let actualizar={
+            estado:true
+        }
+        const respuesta = await fetch(`http://localhost:3000/api/task/${id}`,{
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(actualizar)
+        })
+        console.log(`La tarea ${actualizar.id} fue agregada`);
+        let actual = await respuesta.json()
+        console.log(actual);
+        darDatos()
+    } catch (error) {
+        console.error(error);
+    }  
+}
+    // //Delete
+    // async function eliminarTodo(id) {
+    //     try {
+    //         const respuesta = await fetch(`http://localhost:3000/api/task/${id}`,{
+    //             method: "DELETE",
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             },
+    //         })
+    //         let eliminado = await respuesta.json()
+    //         console.log(eliminado);
+    //         //location.reload()
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }
+function borrar(id) {
+    console.log("ingresa a la funcion");
+    try {
+console.log('ingresa al try');
+         fetch(`http://localhost:3000/api/task/${id}`,{
+            method: "DELETE",
+        })
+        console.log(`se elimino la tarea con id `+id);
+        location.reload()
+    } catch (error) {
+        console.error(error);
+    }  
+}
+getTarea()
