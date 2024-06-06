@@ -5,31 +5,26 @@
 .boton-1 {
     display: flex;
     margin-top: 50px;
-    margin-left: 30px;
 }
 
-.boton-2 {
-    margin: 1px;
-    margin-left: 1265px;
-}
 
 .boton-3 {
-    margin: 1px;
-    margin-left: 1250px;
+    margin-left: 1200px;
 }
 
 .redondo {
-    display: block;
-    width: 45px;
-    height: 45px;
+    position: absolute;
+    left: 1400px;
+    top: 120px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    margin-left: 1350px;
-    margin-top: -40px;
+    text-align: center;
 }
 
 .cuadro {
     margin: 20px auto;
-    margin-left: 30px;
+    margin-left: 50px;
     border: 2px solid cadetblue;
 }
 
@@ -40,6 +35,4 @@
     margin-left: 10px;
 }
 
-.alerta{
-    display: none;
-}
+
