@@ -23,9 +23,10 @@
 }
 
 .cuadro {
-    margin: 20px auto;
-    margin-left: 50px;
-    border: 2px solid cadetblue;
+   min-height: 450px;
+   border: 2px solid black;
+  
+   
 }
 
 .equis {
@@ -34,5 +35,21 @@
 .btn{
     margin-left: 10px;
 }
+.texto2{
+    border: 2px solid black;
+    padding: 10px;
+    margin: 1px;
 
+}
+
+#modify{
+    padding: 15px;
+    margin-top: -50px;
+    
+}
+
+
+.mod{
+    margin-top: 20px;
+}
 

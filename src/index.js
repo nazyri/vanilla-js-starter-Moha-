@@ -3,6 +3,25 @@ const agregar = document.getElementById("boton")
 const input = document.getElementById("input")
 const contador = document.getElementById("contadorT")
 let cuadro = document.getElementById("cuadro")
+const btnBuscar = document.getElementById("btnBuscar")
+const barraBusqueda = document.getElementById("barraBusqueda")
+import Swal from 'sweetalert2'
+import { buscarTarea } from './export'
+
+
+
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'center',
+    iconColor: 'white',
+    customClass: {
+      popup: 'colored-toast',
+    },
+    showConfirmButton: false,
+    timer: 1600,
+    timerProgressBar: true,
+  })
 
 //GET
 async function getTarea() {
@@ -11,11 +30,30 @@ async function getTarea() {
         const respuesta = await fetch("http://localhost:3000/api/task")
         const arreglo = await respuesta.json()
         let contadorCompletadas = 0;
+        let partes = Array.from(arreglo)
         arreglo.forEach(tareas => {
+
+            let buscar = document.createElement("button")
             let check = document.createElement("input")
             let p = document.createElement("span")
+            p.classList.add("texto2")
+
+            if (partes.length == 0) {
+                tarea.style.display="block"
+            } else {
+                tarea.style.display="none"
+            }
+
+
             let div = document.createElement("div")
+            div.className='mod'
             let boton = document.createElement("button")
+
+            buscar.innerHTML = "Buscar Tarea"
+
+
+
+
             boton.innerHTML = "Eliminar"
             boton.className = 'btn'
 
@@ -81,7 +119,12 @@ async function darDatos() {
             console.error(error);
         }
     } else {
-        alert("Ta' vacio")
+        await Toast.fire({
+            title: 'Error!',
+            text: 'Ingrese el texto de la tarea',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
     }//termina if
 
 }
@@ -109,22 +152,9 @@ async function actualizacion(id) {
         console.error(error);
     }
 }
+
 // //Delete
-// async function eliminarTodo(id) {
-//     try {
-//         const respuesta = await fetch(`http://localhost:3000/api/task/${id}`,{
-//             method: "DELETE",
-//             headers: {
-//                 "Content-Type": "application/json"
-//             },
-//         })
-//         let eliminado = await respuesta.json()
-//         console.log(eliminado);
-//         //location.reload()
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
+
 async function borrar(id) {
     console.log("ingresa a la funcion");
     try {
