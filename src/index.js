@@ -7,7 +7,6 @@ const btnBuscar = document.getElementById("btnBuscar")
 const barraBusqueda = document.getElementById("barraBusqueda")
 import Swal from 'sweetalert2'
 import { buscarTarea } from './export'
-import { borrar } from './DELETE'
 
 
 const Toast = Swal.mixin({
@@ -151,6 +150,27 @@ async function actualizacion(id) {
         console.error(error);
     }
 }
+
+// //Delete
+
+export async function borrar(id) {
+    console.log("ingresa a la funcion");
+    try {
+        //console.log('ingresa al try');
+
+        const respuesta = await fetch(`http://localhost:3000/api/task/${id}`, {
+            method: "DELETE",
+        })
+        console.log(`se elimino la tarea con id ${id}`);
+        //location.reload()
+        getTarea();
+
+    } catch (error) {
+        console.error(error);
+        }
+    }
+getTarea();
+
 
 input.addEventListener('keypress', (e)=>{
     if (e.key == 'Enter') {

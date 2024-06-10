@@ -10,10 +10,10 @@ export async function buscarTarea(nombre) {
     } else {
         // Imprimir las tareas
         tareasFiltradas.forEach(tareaFiltrada => {
-            alert(`La tarea encontrada fue ${tareaFiltrada.nombre}`);
+            alert(`Se encontro la tarea "${tareaFiltrada.nombre}"`);
             });
-            }
-            }
+        }
+    }
 
 btnBuscar.addEventListener("click", () => {
     buscarTarea(barraBusqueda.value);
