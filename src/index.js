@@ -1,10 +1,12 @@
 // Inserte el código aquí
+//cree las variables
 const agregar = document.getElementById("boton")
 const input = document.getElementById("input")
 const contador = document.getElementById("contadorT")
 let cuadro = document.getElementById("cuadro")
 const btnBuscar = document.getElementById("btnBuscar")
 const barraBusqueda = document.getElementById("barraBusqueda")
+//importaciones
 import Swal from 'sweetalert2'
 import { buscarTarea } from './export'
 
@@ -22,7 +24,9 @@ const Toast = Swal.mixin({
   })
 
 //GET
+// Se crean las cosas de las paginas y las funciones 
 async function getTarea() {
+
     try {
         cuadro.innerHTML = "";
         const respuesta = await fetch("http://localhost:3000/api/task")
@@ -35,14 +39,14 @@ async function getTarea() {
             let check = document.createElement("input")
             let p = document.createElement("span")
             p.classList.add("texto2")
-
+//No hay tarea
             if (partes.length == 0) {
                 tarea.style.display="block"
             } else {
                 tarea.style.display="none"
             }
 
-
+//cree el imput de buscar tarea junto con el boton 
             let div = document.createElement("div")
             div.className='mod'
             let boton = document.createElement("button")
@@ -51,20 +55,23 @@ async function getTarea() {
 
 
 
-
+//cree el boton eliminar de las tareas
             boton.innerHTML = "Eliminar"
             boton.className = 'btn'
 
+//Cree el contador de las tareas completas
             check.checked = tareas.estado
             if (check.checked) {
                 contadorCompletadas++
             }
 
+//Al darle click se borra la tarea
             boton.addEventListener('click', () => {
                 console.log("detecta el click");
                 borrar(tareas.id)
             })
 
+//contador de tarea y cree una clase
             contador.className = 'redondo'
             check.addEventListener('click', () => {
                 if (check.checked) {
@@ -75,6 +82,8 @@ async function getTarea() {
                 }
                 contador.value = contadorCompletadas
             })
+
+//agregue los elementos nuevos con el appenchild
             div.appendChild(p);
             check.type = "checkbox";
             p.innerHTML = tareas.nombre;
@@ -94,7 +103,8 @@ async function getTarea() {
 
 //POST
 async function darDatos() {
-    if (input.value != '') {
+//alerta
+    if (input.value.trim()!= "") {
 
         try {
             let tarea = {
@@ -115,6 +125,7 @@ async function darDatos() {
             console.log(`La tarea ${tarea.id} fue agregada`);
         } catch (error) {
             console.error(error);
+            alert("Error en el sistema"+error)
         }
     } else {
         await Toast.fire({
@@ -129,6 +140,7 @@ async function darDatos() {
 agregar.addEventListener("click", darDatos)
 
 //PUT
+//Es para modificar las tareas
 async function actualizacion(id) {
     try {
 
@@ -152,7 +164,7 @@ async function actualizacion(id) {
 }
 
 // //Delete
-
+//Es para eliminar
 export async function borrar(id) {
     console.log("ingresa a la funcion");
     try {
@@ -171,7 +183,7 @@ export async function borrar(id) {
     }
 getTarea();
 
-
+//Es la funcion para darle click a la tecla Enter
 input.addEventListener('keypress', (e)=>{
     if (e.key == 'Enter') {
         darDatos()

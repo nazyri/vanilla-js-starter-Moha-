@@ -6,15 +6,17 @@ export async function buscarTarea(nombre) {
     let tareasFiltradas = data.filter(tarea => tarea.nombre === nombre);
     
     if (tareasFiltradas.length === 0) {
+        // Muestra la tarea no encontrada
         alert("No hay tareas con ese nombre.");
     } else {
-        // Imprimir las tareas
+        // Muestra la tarea encontrada
         tareasFiltradas.forEach(tareaFiltrada => {
             alert(`Se encontro la tarea "${tareaFiltrada.nombre}"`);
             });
         }
     }
 
+    //Al darle click muestra la tarea encontrada
 btnBuscar.addEventListener("click", () => {
     buscarTarea(barraBusqueda.value);
     });
