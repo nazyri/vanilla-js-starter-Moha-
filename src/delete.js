@@ -1,5 +1,4 @@
-//Get
-async function guardarDatos() { 
+async function borrartodo() { 
     try{
 
         const respuesta = await fetch('http://localhost:3000/api/task')
@@ -11,16 +10,5 @@ async function guardarDatos() {
       console.error(error);
   }
 }
-export {guardarDatos}
 
-
-
-
-
-
-
-
-
-
-
-
+export {borrartodo}

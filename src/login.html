@@ -7,17 +7,27 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="cuadro">
-		<p>Login</p>
-		<input type="text" id="correo" placeholder="Ingrese su correo">
-		<input type="password" id="contraseña" placeholder="Ingrese su contraseña">
-		<button id="boton">Iniciar</button>
-    <button id="register">Registrar</button>
-    <button id="cambiar">Cambiar Clave</button>
-    <button id="borrar ">salir</button>
-
+    <div class="seccion">
+		<h4>Login</h4>
+		<input class="inicio" type="text" id="correos" placeholder="Ingrese su correo">
+		<input class="inicio" type="password" id="password" placeholder="Ingrese su contraseña">
+    <!-- <button class="inicio2" id="clave">Olvido Su Clave</button> -->
+    <a href="url" id="myBtn" >Olvido su clave</a>
+<!--modal-->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <input class="inicio" type="text" id="correos" placeholder="Ingrese su correo">
+        <input class="inicio" type="password" id="password" placeholder="Ingrese su contraseña">
+        <button>Guardar clave</button>
+      </div>
+    
     </div>
-
+    
+    
+		<button class="boton" id="boton">Iniciar</button>
+    <button type="button" class="boton" id="register">Registrar</button>
+    </div>
 
 
     <script type="module" src="login.js"></script>

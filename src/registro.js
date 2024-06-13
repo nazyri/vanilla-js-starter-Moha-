@@ -16,6 +16,8 @@ button.addEventListener('click',function () {
   let inputnombre = document.getElementById("nombre").value
   let inputcorreo = document.getElementById("correo").value
   let inputclave = document.getElementById("contraseña").value
-  darDatos(inputnombre,inputcorreo,inputclave)
+
+
+ darDatos(inputnombre,inputcorreo,inputclave)
 })
 

@@ -2,9 +2,9 @@
   "name": "vanilla-js",
   "version": "1.0.0",
   "description": "",
-  "main": "registro.js",
+  "main": "login.js",
   "scripts": {
-    "start": "parcel serve src/registro.html --open",
+    "start": "parcel serve src/login.html --open",
     "test": "jest"
   },
   "keywords": [],

@@ -1,5 +1,3 @@
-
-
 //post
 async function darDatos(nombre,correo,clave) {
     console.log("ingreso a darDATOS");

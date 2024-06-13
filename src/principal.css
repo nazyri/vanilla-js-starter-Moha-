@@ -10,6 +10,12 @@
     box-shadow: 7px 13px 37px #000;
 }
 
+.oculto{
+    display: none;
+}
+.visible{
+    display: block;
+}
 .inicio{
     width: 95%;
     background-color: #aaa;
@@ -21,7 +27,7 @@
     font-size: 18px;
 }
 
-.inicio2{
+.cambiar{
     width: 100%;
     background-color: #3c2048;
     border: none;
