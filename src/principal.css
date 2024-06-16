@@ -37,3 +37,14 @@
     font-size: 16px;
     cursor: pointer;
 }
+
+#btnclave{
+    background-color: #3c2048;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 20px 0;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 13px;
+}

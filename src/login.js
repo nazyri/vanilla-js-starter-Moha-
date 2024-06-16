@@ -3,9 +3,29 @@ import { guardarDatos } from "./get";
 
 let button2 = document.getElementById("boton")
 let register = document.getElementById("register")
+let btnguardar = document.getElementById("guardarclave")
+
 
 register.addEventListener('click', function () {
     window.location.href = "registro.html"
+})
+
+btnguardar.addEventListener("click", async () => {
+    let bandera = false
+    let correos = document.getElementById("correos").value
+    let datos = await guardarDatos()
+    datos.forEach(correo => {
+      if (correos === correo.correo) {
+        alert ("su correo si coincide")
+        window.location.href="principal.html"
+        bandera = true
+      }
+      if (!bandera) {
+        bandera = true
+        alert ("Su clave no coincide")
+      }
+
+    })
 })
 
 
